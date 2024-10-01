@@ -1,0 +1,18 @@
+<h2>Using ng-container Example</h2>
+<button (click)="isLoggedIn = !isLoggedIn">
+  Toggle Login State (Current: {{ isLoggedIn ? 'Logged In' : 'Logged Out' }})
+</button>
+
+<ng-container *ngIf="isLoggedIn; else loggedOut">
+  <h3>Welcome back!</h3>
+  <ul>
+    <ng-container *ngFor="let item of items">
+      <li>{{ item }}</li>
+    </ng-container>
+  </ul>
+</ng-container>
+
+<ng-template #loggedOut>
+  <h3>Please log in to see your items.</h3>
+</ng-template>
+
